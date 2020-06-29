@@ -1,3 +1,3 @@
-# etch-a-sketch
+# Etch-A-Sketch
 
-Etch-A-Sketch project as part of the Web development 101 Odin Project course
+Interactive Etch-A-Sketch project as part of the Web development 101 Odin Project course
