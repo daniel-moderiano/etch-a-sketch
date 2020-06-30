@@ -55,6 +55,7 @@ drawInitialGrid(16);
 function resetBoard() {
     gridSquaresClass.forEach(function(gridSquare) {
         gridSquare.classList.remove("grid-item--colour");
+        gridSquare.style.removeProperty("background-color");
     });
 }
 
@@ -71,3 +72,23 @@ function changeGrid() {
 }
 
 gridButton.addEventListener('click', changeGrid);
+
+// Function to add a random RGB 'brush' and connect this with a button.
+
+function randomColour() {
+    return `rgb(${Math.round(Math.random() * 256)}, ${Math.round(Math.random() * 256)}, ${Math.round(Math.random() * 256)})`;
+}
+
+function randomRGB() {
+    gridSquaresClass = Object.values(document.getElementsByClassName("grid-item"));
+    gridSquaresClass.forEach(function(gridSquare) {
+        gridSquare.addEventListener('mouseover', () => {
+            gridSquare.style.cssText = `background-color: ${randomColour()}`;
+        });
+    });
+}
+
+colourButton.addEventListener('click', () => {
+    resetBoard();
+    randomRGB();
+});
