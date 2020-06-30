@@ -4,7 +4,7 @@
 const grid = document.getElementById("grid");
 const gridSquare = document.createElement("div");
 const resetButton = document.querySelector(".button--reset");
-const eraserButton = document.querySelector(".button--eraser");
+const blackButton = document.querySelector(".button--black");
 const colourButton = document.querySelector(".button--colour");
 const gridButton = document.querySelector(".button--grid");
 let gridSquaresClass;
@@ -65,15 +65,15 @@ resetButton.addEventListener('click', resetBoard);
 // Function to change the number of squares in the grid with a user prompted number. Uses prior function to achieve this by clearing the grid, then re-drawing and adding colour funcitonality.
 
 function changeGrid() {
-    let numSquares = parseInt(prompt("Enter the number of squares"));
+    let numSquares = (prompt("Enter the number of squares"));    
     clearGridSquares();
-    drawGrid(numSquares);
-    addColourClass();
+    drawGrid(parseInt(numSquares));
+    addColourClass(); 
 }
 
 gridButton.addEventListener('click', changeGrid);
 
-// Function to add a random RGB 'brush' and connect this with a button.
+// Function to add a random RGB 'brush' and connect this with the coloured button.
 
 function randomColour() {
     return `rgb(${Math.round(Math.random() * 256)}, ${Math.round(Math.random() * 256)}, ${Math.round(Math.random() * 256)})`;
@@ -92,3 +92,14 @@ colourButton.addEventListener('click', () => {
     resetBoard();
     randomRGB();
 });
+
+// Function to return to standard black colouring with the "black" button
+
+blackButton.addEventListener('click', () => {
+    resetBoard();
+    clearGridSquares();
+    drawGrid(grid.style.cssText.substring(30, 32));
+    addColourClass();
+});
+
+
