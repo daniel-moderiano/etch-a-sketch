@@ -1,3 +1,4 @@
 # Etch-A-Sketch
+A browser-based 'etch-a-sketh' type project that lets the user 'draw' patterns using their mouse on a sketch grid.
 
-Interactive Etch-A-Sketch project as part of the Web development 101 Odin Project course
+The purpose of this project was to apply foundational DOM manipulation skills to create an interactive UI.
